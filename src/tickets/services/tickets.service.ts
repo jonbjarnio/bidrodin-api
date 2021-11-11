@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Ticket, TicketDocument } from '../schemas/ticket.schema';
+import { Ticket, TicketDocument } from '../../schemas/ticket.schema';
 import { Model } from 'mongoose';
-import { CreateTicketDto } from './dtos/create-ticket.dto';
+import { CreateTicketDto } from '../dtos/create-ticket.dto';
 import { UpdateResult } from 'mongodb';
-import { DeactivateTicketDto } from './dtos/deactivate-ticket.dto';
+import { DeactivateTicketDto } from '../dtos/deactivate-ticket.dto';
 
 @Injectable()
 export class TicketsService {

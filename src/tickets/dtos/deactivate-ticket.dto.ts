@@ -1,7 +1,3 @@
-export class CreateTicketDto {
-  ownerName: string;
-  ownerId: number;
-  reason: string;
+export class DeactivateTicketDto {
   ticketNumber: string;
-  active: boolean;
 }

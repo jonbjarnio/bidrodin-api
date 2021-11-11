@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { CreateTicketDto } from '../../tickets/dtos/create-ticket.dto';
-import { TicketsService } from '../../tickets/tickets.service';
+import { TicketsService } from '../../tickets/services/tickets.service';
 import { Ticket } from '../../schemas/ticket.schema';
+import { DeactivateTicketDto } from '../../tickets/dtos/deactivate-ticket.dto';
 
 @Controller('tickets')
 export class TicketsController {
@@ -24,7 +25,8 @@ export class TicketsController {
   }
 
   @Put()
-  async deactivateUser(ticketNumber) {
+  async deactivateUser(@Body() ticketNumber: DeactivateTicketDto) {
+    console.log(ticketNumber);
     return this.ticketService.deactivateUser(ticketNumber);
   }
 }
