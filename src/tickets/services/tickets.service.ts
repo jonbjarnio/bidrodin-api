@@ -4,6 +4,7 @@ import { Ticket, TicketDocument } from '../schemas/ticket.schema';
 import { Model } from 'mongoose';
 import { CreateTicketDto } from './dtos/create-ticket.dto';
 import { UpdateResult } from 'mongodb';
+import { DeactivateTicketDto } from './dtos/deactivate-ticket.dto';
 
 @Injectable()
 export class TicketsService {
@@ -24,9 +25,12 @@ export class TicketsService {
     return this.ticketModel.find({ active: true }).exec();
   }
 
-  async deactivateUser(ticketNumber): Promise<UpdateResult> {
+  async deactivateUser(
+    deactivateTicketDto: DeactivateTicketDto,
+  ): Promise<UpdateResult> {
+    console.log(deactivateTicketDto);
     return this.ticketModel.updateOne(
-      { ticketNumber: ticketNumber },
+      { ticketNumber: deactivateTicketDto.ticketNumber },
       { $set: { active: false } },
     );
   }
