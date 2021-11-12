@@ -5,7 +5,7 @@ import { Model } from 'mongoose';
 import {
   MedicalCenter,
   MedicalCenterDocument,
-} from '../../../schemas/medical-center.schema';
+} from '../../schemas/medical-center.schema';
 import { HttpService } from '@nestjs/axios';
 import { map, Observable } from 'rxjs';
 
@@ -19,9 +19,8 @@ export class MedicalCenterService {
     private httpService: HttpService,
   ) {}
 
-  @Cron('45 * * * * *')
+  /*  @Cron('45 * * * * *')
   handleCron() {
-    this.logger.debug('Called when the current second is 45');
   }
 
   @Interval(10000)
@@ -30,5 +29,5 @@ export class MedicalCenterService {
     return this.httpService
       .get('https://numer.laeknavaktin.is/index.php?rest_route=/wp/v2/pages/6');
     //  .map((response) => response.data);
-  }
+  }*/
 }

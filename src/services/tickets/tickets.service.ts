@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Ticket, TicketDocument } from '../../schemas/ticket.schema';
 import { Model } from 'mongoose';
-import { CreateTicketDto } from '../dtos/create-ticket.dto';
+import { CreateTicketDto } from '../../tickets/dtos/create-ticket.dto';
 import { UpdateResult } from 'mongodb';
-import { DeactivateTicketDto } from '../dtos/deactivate-ticket.dto';
+import { DeactivateTicketDto } from '../../tickets/dtos/deactivate-ticket.dto';
 
 @Injectable()
 export class TicketsService {
@@ -33,5 +33,9 @@ export class TicketsService {
       { ticketNumber: deactivateTicketDto.ticketNumber },
       { $set: { active: false } },
     );
+  }
+
+  async update(): Promise<UpdateResult> {
+    return this.ticketModel.updateMany({}, { $set: { active: true } });
   }
 }

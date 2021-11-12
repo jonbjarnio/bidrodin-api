@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MedicalCenterService } from './services/medical-center/medical-center.service';
+import { MedicalCenterService } from '../services/medical-center/medical-center.service';
 import { ScheduleModule } from '@nestjs/schedule';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HttpModule } from '@nestjs/axios';

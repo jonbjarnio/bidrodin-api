@@ -1,16 +1,18 @@
 import { Controller, Get } from '@nestjs/common';
-import { MedicalCenterService } from '../../tickets/services/medical-center/medical-center.service';
+import { MedicalCenterService } from '../../services/medical-center/medical-center.service';
 import { Observable, map, pipe } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 
 @Controller('medical-center')
 export class MedicalCenterController {
-  constructor(private medicalCenterService: MedicalCenterService,     private httpService: HttpService,
+  constructor(
+    private medicalCenterService: MedicalCenterService,
+    private httpService: HttpService,
   ) {}
-  @Get('bla')
+  /*  @Get('bla')
   async findAll(): Promise<Observable<any>> {
     return this.medicalCenterService.getCurrentEstimatedWaitingTime();
-  }
+  }*/
   @Get()
   root() {
     return this.httpService
