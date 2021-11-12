@@ -10,7 +10,6 @@ export class TicketsController {
 
   @Post()
   async create(@Body() createTicketDto: CreateTicketDto) {
-    console.log(createTicketDto);
     return await this.ticketService.create(createTicketDto);
   }
 

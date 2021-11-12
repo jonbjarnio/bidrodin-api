@@ -9,10 +9,7 @@ export class MedicalCenterController {
     private medicalCenterService: MedicalCenterService,
     private httpService: HttpService,
   ) {}
-  /*  @Get('bla')
-  async findAll(): Promise<Observable<any>> {
-    return this.medicalCenterService.getCurrentEstimatedWaitingTime();
-  }*/
+
   @Get()
   root() {
     return this.httpService
