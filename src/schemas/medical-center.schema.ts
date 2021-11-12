@@ -1,24 +1,15 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type TicketDocument = Ticket & Document;
+export type MedicalCenterDocument = MedicalCenter & Document;
 
 @Schema()
-export class Ticket {
+export class MedicalCenter {
   @Prop()
-  ownerName: string;
+  nextNumber: string;
 
   @Prop()
-  ownerId: number;
-
-  @Prop()
-  reason: string;
-
-  @Prop()
-  ticketNumber: string;
-
-  @Prop()
-  active: boolean;
+  estimatedWaitingTime: number;
 }
 
-export const TicketSchema = SchemaFactory.createForClass(Ticket);
+export const MedicalCenterSchema = SchemaFactory.createForClass(MedicalCenter);
